@@ -176,17 +176,17 @@ button:hover {
   box-sizing: border-box;
 
   img {
-  width: 5%;
-  height: auto;
-}
+    width: 5%;
+    height: auto;
+  }
 
-.header_title{
-  margin: 0;
-}
+  .header_title{
+    margin: 0;
+  }
 
-.header_navigation{
-  margin-left: auto;
-}
+  .header_navigation{
+    margin-left: auto;
+  }
 }
 
 /* ### TODO ### Styles for Main Component */
@@ -199,7 +199,7 @@ button:hover {
   display: flex;
   justify-content: left;
   align-items: flex-start;
-  gap: 3rem;
+  gap: 4rem;
   padding: 3rem;
 }
 
@@ -223,50 +223,47 @@ button:hover {
   /*background-color: green;*/
   flex-direction: column;
   display: flex;
-  flex-grow: 1;
+  flex-grow: 0.3;
+
 }
 
-.discovery_wrapper{
+.discovery__wrapper{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
   width: 100%;
+  padding: 1.5rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.discovery_results {
-  flex: 1;
-}
-
-.discovery_results{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.discovery_results li {
-  background-color: #dddddd;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  color: #00B7FF;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.discovery_map{
-  flex: 1;
+.discovery__results {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-}
+  list-style: none;
 
-.discovery_map img{
-  width: 100%;
-  height: auto;
-  border: 1px solid;
-  box-sizing: border-box;
+ li {
+    background-color: var(--background-color);
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: var(--link-color);
+    font-size: 0,8rem;
+    line-height: 2;
+  }
+}
+.discovery__map{
+  display: flex;
+  flex-direction: column;
+
+  img{
+    width: 100%;
+    height: auto;
+  }
+
+  span {
+    color: var(--gray-color);
+  }
 }
 
 
