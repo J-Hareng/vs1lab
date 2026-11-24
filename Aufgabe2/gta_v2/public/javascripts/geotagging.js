@@ -135,13 +135,53 @@ class MapManager {
 }
 
 /**
- * TODO: 'updateLocation'
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-// ... your code here ...
+function updateLocation() {
+    // Find current location
+    LocationHelper.findLocation((helper) => {
+        // Get latitude and longitude values
+        const latitude = helper.latitude;
+        const longitude = helper.longitude;
+        
+        // Update the visible input fields in the Tagging form
+        const latInputTagging = document.getElementById("Latitude_Input");
+        const lonInputTagging = document.getElementById("Longitude_Input");
+        
+        if (latInputTagging && lonInputTagging) {
+            latInputTagging.value = latitude;
+            lonInputTagging.value = longitude;
+        }
+        
+        // Update the hidden input fields in the Discovery form
+        const latInputDiscovery = document.querySelector('#discoveryFilterForm input[type="hidden"][id="Latitude_Input"]');
+        const lonInputDiscovery = document.querySelector('#discoveryFilterForm input[type="hidden"][id="Longitude_Input"]');
+        
+        if (latInputDiscovery && lonInputDiscovery) {
+            latInputDiscovery.value = latitude;
+            lonInputDiscovery.value = longitude;
+        }
+        
+        // Initialize the map and update markers
+        const mapManager = new MapManager();
+        mapManager.initMap(latitude, longitude);
+        mapManager.updateMarkers(latitude, longitude);
+        
+        // Remove placeholder image and description
+        const mapViewElement = document.getElementById("mapView");
+        const mapDescriptionElement = document.querySelector("#map > span");
+        
+        if (mapViewElement) {
+            mapViewElement.remove();
+        }
+        if (mapDescriptionElement) {
+            mapDescriptionElement.remove();
+        }
+    });
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
 });

@@ -257,6 +257,12 @@ button:hover {
 /* ### TODO ### Media Queries */
 
 @media (max-width: 850px) {
+  .header {
+    img {
+      margin:9px 0;
+      width: 1em !important;
+    }
+  }
   .main {
     flex-direction: column;
     align-items: stretch;
@@ -285,8 +291,5 @@ button:hover {
     }
   }
 
-  img {
-    margin:10px 0;
-    width: 2em !important;
-  }
+ 
 }
